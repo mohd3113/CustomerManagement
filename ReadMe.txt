@@ -13,7 +13,7 @@ System Setup and run.
 
 The complete assignment is deployed into the cloud and can be accessed at the following URL: mohd3113-002-site10.anytempurl.com 
 
-About Solution Articture 
+About Solution Architecture
 
 The solution is built using onion architecture. The solution is divided into 4 main projects (Layers):
 
