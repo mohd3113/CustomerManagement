@@ -11,6 +11,7 @@ namespace CustomerManagement.Application.Mappings
         {
             CreateMap<CreateUpdateTemplateDto, CommunicationTemplate>().ReverseMap();
             CreateMap<CommunicationTemplate, TemplateDetailsDto>().ReverseMap();
+            CreateMap<CommunicationTemplate, TemplateListItemDto>().ReverseMap();
         }
     }
 }
