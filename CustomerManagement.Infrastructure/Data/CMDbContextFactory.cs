@@ -8,7 +8,7 @@ namespace CustomerManagement.Infrastructure.Data
         CMDbContext IDesignTimeDbContextFactory<CMDbContext>.CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<CMDbContext>();
-            optionsBuilder.UseSqlServer("Data Source=SQL6033.site4now.net;Initial Catalog=db_aa8268_cmdatabase;User Id=db_aa8268_cmdatabase_admin;Password=TestTestcm1");
+            optionsBuilder.UseSqlServer("");
 
             return new CMDbContext(optionsBuilder.Options);
         }
