@@ -3,7 +3,7 @@ using MediatR;
 
 namespace CustomerManagement.Application.Features.Customers.Requests.Commands
 {
-    public class AddCustomerCommand : IRequest<CustomerDetailsDto>
+    public class CreateCustomerCommand : IRequest<CustomerDetailsDto>
     {
         public CreateUpdateCustomerDto Customer { get; set; }
     }

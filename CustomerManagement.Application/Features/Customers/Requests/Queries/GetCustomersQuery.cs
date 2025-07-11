@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CustomerManagement.Application.Dtos.Customers;
+using MediatR;
 
 namespace CustomerManagement.Application.Features.Customers.Requests.Queries
 {
-    internal class GetCustomersQuery
+    public class GetCustomersQuery : IRequest<List<CustomerDetailsDto>>
     {
+        
     }
 }

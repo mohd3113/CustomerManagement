@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomerManagement.Application.Exceptions
 {
-    public class ValidationException
+    public class ValidationException : ApplicationException
     {
         public string Message { get; set; }
         public List<string> Errors { get; set; }

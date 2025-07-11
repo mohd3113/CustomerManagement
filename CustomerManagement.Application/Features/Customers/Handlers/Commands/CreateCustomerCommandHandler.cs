@@ -9,23 +9,19 @@ using MediatR;
 
 namespace CustomerManagement.Application.Features.Customers.Handlers.Commands
 {
-    public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, CustomerDetailsDto>
+    public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, CustomerDetailsDto>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public UpdateCustomerCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+
+        public CreateCustomerCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<CustomerDetailsDto> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
-        {
-            var customer = await _unitOfWork.CustomerRepository.Get(request.CustomerId);
 
-            if (customer == null)
-            {
-                throw new NotFoundException(nameof(Customer), request.CustomerId.ToString());
-            }
+        public async Task<CustomerDetailsDto> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
+        {
 
             var validator = new CreateUpdateCustomerDtoValidator();
 
@@ -36,9 +32,9 @@ namespace CustomerManagement.Application.Features.Customers.Handlers.Commands
                 throw new ValidationException("Validation Error", validationResult.Errors.Select(p => p.ErrorMessage).ToList());
             }
 
-            _mapper.Map(request.Customer, customer);
+            var customer = _mapper.Map<Customer>(request.Customer);
 
-            _unitOfWork.CustomerRepository.Update(customer);
+            await _unitOfWork.CustomerRepository.Add(customer);
 
             await _unitOfWork.SaveChanges();
 

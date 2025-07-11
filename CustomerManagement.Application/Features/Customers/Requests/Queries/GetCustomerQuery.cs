@@ -1,13 +1,10 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CustomerManagement.Application.Dtos.Customers;
+using MediatR;
 
 namespace CustomerManagement.Application.Features.Customers.Requests.Queries
 {
-    public class GetCustomerQuery : IRequest
+    public class GetCustomerQuery : IRequest<CustomerDetailsDto>
     {
+        public long CustomerId { get; set; }
     }
 }

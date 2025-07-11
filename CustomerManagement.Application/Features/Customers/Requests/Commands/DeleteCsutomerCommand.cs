@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace CustomerManagement.Application.Features.Customers.Requests.Commands
 {
-    internal class DeleteCsutomerCommand
+    public class DeleteCsutomerCommand : IRequest<long>
     {
+        public long CustomerId { get; set; }
     }
 }

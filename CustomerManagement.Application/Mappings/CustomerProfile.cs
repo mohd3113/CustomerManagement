@@ -8,8 +8,8 @@ namespace CustomerManagement.Application.Mappings
     {
         public CustomerProfile()
         {
-            _ = CreateMap<CreateUpdateCustomerDto, Customer>();
-            _ = CreateMap<Customer, CustomerDetailsDto>();
+            CreateMap<CreateUpdateCustomerDto, Customer>().ReverseMap();
+            CreateMap<Customer, CustomerDetailsDto>().ReverseMap();
         }
     }
 }
